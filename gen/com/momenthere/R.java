@@ -1376,22 +1376,22 @@ containing a value of this type.
         public static final int abc_config_showMenuShortcutsWhenKeyboardPresent=0x7f050003;
     }
     public static final class color {
-        public static final int abc_background_cache_hint_selector_material_dark=0x7f060034;
-        public static final int abc_background_cache_hint_selector_material_light=0x7f060035;
+        public static final int abc_background_cache_hint_selector_material_dark=0x7f060037;
+        public static final int abc_background_cache_hint_selector_material_light=0x7f060038;
         public static final int abc_input_method_navigation_guard=0x7f060003;
-        public static final int abc_primary_text_disable_only_material_dark=0x7f060036;
-        public static final int abc_primary_text_disable_only_material_light=0x7f060037;
-        public static final int abc_primary_text_material_dark=0x7f060038;
-        public static final int abc_primary_text_material_light=0x7f060039;
-        public static final int abc_search_url_text=0x7f06003a;
+        public static final int abc_primary_text_disable_only_material_dark=0x7f060039;
+        public static final int abc_primary_text_disable_only_material_light=0x7f06003a;
+        public static final int abc_primary_text_material_dark=0x7f06003b;
+        public static final int abc_primary_text_material_light=0x7f06003c;
+        public static final int abc_search_url_text=0x7f06003d;
         public static final int abc_search_url_text_normal=0x7f060000;
         public static final int abc_search_url_text_pressed=0x7f060002;
         public static final int abc_search_url_text_selected=0x7f060001;
-        public static final int abc_secondary_text_material_dark=0x7f06003b;
-        public static final int abc_secondary_text_material_light=0x7f06003c;
+        public static final int abc_secondary_text_material_dark=0x7f06003e;
+        public static final int abc_secondary_text_material_light=0x7f06003f;
         public static final int accent_material_dark=0x7f06000f;
         public static final int accent_material_light=0x7f06000e;
-        public static final int backColor=0x7f060033;
+        public static final int backColor=0x7f060036;
         public static final int background_floating_material_dark=0x7f060006;
         public static final int background_floating_material_light=0x7f060007;
         public static final int background_material_dark=0x7f060004;
@@ -1422,6 +1422,9 @@ containing a value of this type.
         public static final int hint_foreground_material_light=0x7f06001f;
         public static final int link_text_material_dark=0x7f060022;
         public static final int link_text_material_light=0x7f060023;
+        public static final int list_background=0x7f060032;
+        public static final int list_background_pressed=0x7f060033;
+        public static final int list_item_title=0x7f060031;
         public static final int material_blue_grey_800=0x7f06002e;
         public static final int material_blue_grey_900=0x7f06002f;
         public static final int material_blue_grey_950=0x7f060030;
@@ -1447,8 +1450,8 @@ containing a value of this type.
         public static final int secondary_text_disabled_material_light=0x7f060029;
         public static final int switch_thumb_normal_material_dark=0x7f060012;
         public static final int switch_thumb_normal_material_light=0x7f060013;
-        public static final int transGray=0x7f060032;
-        public static final int transOrange=0x7f060031;
+        public static final int transGray=0x7f060035;
+        public static final int transOrange=0x7f060034;
     }
     public static final class dimen {
         /**  Default height of an action bar. 
@@ -1640,22 +1643,26 @@ containing a value of this type.
         public static final int button_write=0x7f02003e;
         public static final int cancel=0x7f02003f;
         public static final int ic_eiffle=0x7f020040;
-        public static final int ic_launcher=0x7f020041;
-        public static final int login_background=0x7f020042;
-        public static final int login_logo=0x7f020043;
-        public static final int messagebackground=0x7f020044;
-        public static final int messagecancel=0x7f020045;
-        public static final int messagesend=0x7f020046;
-        public static final int nav_menu=0x7f020047;
-        public static final int nav_wall=0x7f020048;
-        public static final int path2=0x7f020049;
-        public static final int post_icon=0x7f02004a;
-        public static final int postcard1=0x7f02004b;
-        public static final int postcard3=0x7f02004c;
-        public static final int postcardback=0x7f02004d;
-        public static final int send=0x7f02004e;
-        public static final int start=0x7f02004f;
-        public static final int swtich=0x7f020050;
+        public static final int ic_home=0x7f020041;
+        public static final int ic_launcher=0x7f020042;
+        public static final int list_item_bg_normal=0x7f020043;
+        public static final int list_item_bg_pressed=0x7f020044;
+        public static final int list_selector=0x7f020045;
+        public static final int login_background=0x7f020046;
+        public static final int login_logo=0x7f020047;
+        public static final int messagebackground=0x7f020048;
+        public static final int messagecancel=0x7f020049;
+        public static final int messagesend=0x7f02004a;
+        public static final int nav_menu=0x7f02004b;
+        public static final int nav_wall=0x7f02004c;
+        public static final int path2=0x7f02004d;
+        public static final int post_icon=0x7f02004e;
+        public static final int postcard1=0x7f02004f;
+        public static final int postcard3=0x7f020050;
+        public static final int postcardback=0x7f020051;
+        public static final int send=0x7f020052;
+        public static final int start=0x7f020053;
+        public static final int swtich=0x7f020054;
     }
     public static final class id {
         public static final int BtnCancel=0x7f09006b;
@@ -1820,10 +1827,11 @@ containing a value of this type.
         public static final int activity_main=0x7f030018;
         public static final int askforaddress=0x7f030019;
         public static final int dialog=0x7f03001a;
-        public static final int postcard=0x7f03001b;
-        public static final int signup=0x7f03001c;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001d;
-        public static final int unavailable=0x7f03001e;
+        public static final int drawer_list_item=0x7f03001b;
+        public static final int postcard=0x7f03001c;
+        public static final int signup=0x7f03001d;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001e;
+        public static final int unavailable=0x7f03001f;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name = "transOrange">#BFff9e6e</color>
-    <color name = "transGray">#8CFFFFFF</color>
-    <color name = "backColor">#e7e7e7</color>
+
+    <color name="list_item_title">#fff</color>
+    <color name="list_background">#303030</color>
+    <color name="list_background_pressed">#992416</color>
+    <color name="transOrange">#BFff9e6e</color>
+    <color name="transGray">#8CFFFFFF</color>
+    <color name="backColor">#e7e7e7</color>
+
 </resources>

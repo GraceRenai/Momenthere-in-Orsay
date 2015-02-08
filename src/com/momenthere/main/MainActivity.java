@@ -31,7 +31,7 @@ import com.momenthere.R;
 import com.momenthere.R.id;
 import com.momenthere.R.layout;
 import com.momenthere.R.style;
-import com.momenthere.stickerwall.StickerFragment;
+import com.momenthere.fragment.StickerFragment;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -90,6 +90,7 @@ public class MainActivity extends Activity {
 	public LocationManager locationManager;
 	private String username;
 	private ImageButton mode;
+	private String postion = "Orsay";
 
 	private class SlideMenuClickListener implements
 			ListView.OnItemClickListener {
@@ -139,7 +140,7 @@ public class MainActivity extends Activity {
 		adapter = new NavDrawerListAdapter(getApplicationContext(),
 				navDrawerItems);
 		mDrawerList.setAdapter(adapter);
-
+//we
 		// enabling action bar app icon and behaving it as toggle button
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		getActionBar().setHomeButtonEnabled(true);
@@ -192,7 +193,7 @@ public class MainActivity extends Activity {
 				"Welcome to MomentHere in Orsay", Toast.LENGTH_SHORT).show();
 		Log.i("fragment", "okay2");
 
-		init("orsay");
+		init(postion );
 
 	}
 
@@ -201,7 +202,6 @@ public class MainActivity extends Activity {
 		Fragment fragment = null;
 		switch (position) {
 		case 0:
-			Log.i("fragment", "okay");
 
 			fragment = new StickerFragment();
 			break;

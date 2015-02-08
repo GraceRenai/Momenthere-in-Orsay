@@ -5,13 +5,13 @@
     android:layout_height="match_parent"
     tools:context="${relativePackage}.${activityClass}" >
 
-	   <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#e7e7e7"
-    android:orientation="vertical"
-    tools:context=".MainActivity" >
-    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#e7e7e7"
+        android:orientation="vertical"
+        tools:context=".MainActivity" >
+
         <ImageView
             android:id="@+id/imageViewId"
             android:layout_width="fill_parent"
@@ -20,156 +20,150 @@
             android:scaleType="centerCrop"
             android:src="@drawable/background" />
 
-        <ScrollView             
-           android:layout_width="fill_parent"
-           android:layout_height="fill_parent"
-           android:id="@+id/mBtnRe2"
-           android:fadingEdge="none"      
-           > 
-        
-        <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal" >
+        <ScrollView
+            android:id="@+id/mBtnRe2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fadingEdge="none" >
 
             <LinearLayout
-            android:layout_width="160dp"
-            android:layout_height="fill_parent"
-            android:orientation="vertical" >
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
 
-                <TextView
-                    android:id="@+id/text1"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="6dp"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="6dp"
-                    android:layout_marginTop="6dp"
-                    android:background="#ffffff"
-                    android:padding="18dp"
-                    android:text="This spot is really amazing!I love here!!"
-                    android:textSize="12sp"
-                    android:textStyle="normal"
-                    android:typeface="normal" />
-            
-                <TextView
-                    android:id="@+id/text3"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="6dp"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="6dp"
-                    android:layout_marginTop="6dp"
-                    android:background="#ffffff"
-                    android:padding="18dp"
-                    android:text="Beautiful!!!"
-                    android:textSize="12sp"
-                    android:textStyle="normal"
-                    android:typeface="normal" />
-            
-                <TextView
-                    android:id="@+id/text5"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="6dp"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="6dp"
-                    android:layout_marginTop="6dp"
-                    android:background="#ffffff"
-                    android:padding="18dp"
-                    android:text="This spot is really amazing!This spot is really amazing!"
-                    android:textSize="12sp"
-                    android:textStyle="normal"
-                    android:typeface="normal" />
-            
-                <TextView
-                    android:id="@+id/text7"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="6dp"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginRight="6dp"
-                    android:layout_marginTop="6dp"
-                    android:background="#ffffff"
-                    android:padding="18dp"
-                    android:text="I want to go with you."
-                    android:textSize="12sp"
-                    android:textStyle="normal"
-                    android:typeface="normal" />
-          
-            </LinearLayout>
-        
-            <LinearLayout
-            android:layout_width="160dp"
-            android:layout_height="fill_parent"
-            android:orientation="vertical" >
-            
-                <TextView
-                    android:id="@+id/text2"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="6dp"
-                    android:layout_marginLeft="6dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_marginTop="6dp"
-                    android:background="#ffffff"
-                    android:padding="18dp"
-                    android:text="This spot is really amazing!"
-                    android:textSize="12sp"
-                    android:textStyle="normal"
-                    android:typeface="normal" />
-            
-                <TextView
-                    android:id="@+id/text4"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="6dp"
-                    android:layout_marginLeft="6dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_marginTop="6dp"
-                    android:background="#ffffff"
-                    android:padding="18dp"
-                    android:text="This spot is really amazing!How are you??"
-                    android:textSize="12sp"
-                    android:textStyle="normal"
-                    android:typeface="normal" />
-            
-                <TextView
-                    android:id="@+id/text6"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="6dp"
-                    android:layout_marginLeft="6dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_marginTop="6dp"
-                    android:background="#ffffff"
-                    android:padding="18dp"
-                    android:text="I am here.Hah..."
-                    android:textSize="12sp"
-                    android:textStyle="normal"
-                    android:typeface="normal" />
-            
-                <TextView
-                    android:id="@+id/text8"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="6dp"
-                    android:layout_marginLeft="6dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_marginTop="6dp"
-                    android:background="#ffffff"
-                    android:padding="18dp"
-                    android:text="This spot is really amazing!This spot is really amazing!"
-                    android:textSize="12sp"
-                    android:textStyle="normal"
-                    android:typeface="normal" />
-            
-            </LinearLayout>
-        
-        </LinearLayout>
-        
-         </ScrollView>  
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical" >
 
+                    <TextView
+                        android:id="@+id/text1"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="6dp"
+                        android:background="#ffffff"
+                        android:padding="18dp"
+                        android:text="This spot is really amazing!I love here!!"
+                        android:textSize="12sp"
+                        android:textStyle="normal"
+                        android:typeface="normal" />
+
+                    <TextView
+                        android:id="@+id/text3"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="6dp"
+                        android:background="#ffffff"
+                        android:padding="18dp"
+                        android:text="Beautiful!!!"
+                        android:textSize="12sp"
+                        android:textStyle="normal"
+                        android:typeface="normal" />
+
+                    <TextView
+                        android:id="@+id/text5"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="6dp"
+                        android:background="#ffffff"
+                        android:padding="18dp"
+                        android:text="This spot is really amazing!This spot is really amazing!"
+                        android:textSize="12sp"
+                        android:textStyle="normal"
+                        android:typeface="normal" />
+
+                    <TextView
+                        android:id="@+id/text7"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="6dp"
+                        android:layout_marginTop="6dp"
+                        android:background="#ffffff"
+                        android:padding="18dp"
+                        android:text="I want to go with you."
+                        android:textSize="12sp"
+                        android:textStyle="normal"
+                        android:typeface="normal" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="160dp"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:id="@+id/text2"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginTop="6dp"
+                        android:background="#ffffff"
+                        android:padding="18dp"
+                        android:text="This spot is really amazing!"
+                        android:textSize="12sp"
+                        android:textStyle="normal"
+                        android:typeface="normal" />
+
+                    <TextView
+                        android:id="@+id/text4"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginTop="6dp"
+                        android:background="#ffffff"
+                        android:padding="18dp"
+                        android:text="This spot is really amazing!How are you??"
+                        android:textSize="12sp"
+                        android:textStyle="normal"
+                        android:typeface="normal" />
+
+                    <TextView
+                        android:id="@+id/text6"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginTop="6dp"
+                        android:background="#ffffff"
+                        android:padding="18dp"
+                        android:text="I am here.Hah..."
+                        android:textSize="12sp"
+                        android:textStyle="normal"
+                        android:typeface="normal" />
+
+                    <TextView
+                        android:id="@+id/text8"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginTop="6dp"
+                        android:background="#ffffff"
+                        android:padding="18dp"
+                        android:text="This spot is really amazing!This spot is really amazing!"
+                        android:textSize="12sp"
+                        android:textStyle="normal"
+                        android:typeface="normal" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
     <TextView
@@ -181,18 +175,17 @@
         android:textColor="#ffffff"
         android:textSize="12sp"
         android:typeface="normal" />
-    
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="50dp"
-        android:textColor="#ffffff"
         android:text="\n\n  Welcome to Orsay!"
+        android:textColor="#ffffff"
         android:textSize="13sp"
         android:typeface="normal" />
-    
 
     <ImageButton
         android:id="@+id/buttonMessage"
@@ -204,15 +197,14 @@
         android:minWidth="50dp"
         android:scaleType="centerCrop"
         android:src="@drawable/button" />
-        <ImageButton
+
+    <ImageButton
         android:id="@+id/imageButton1"
         android:layout_width="35dp"
         android:layout_height="30dp"
+        android:layout_gravity="top|right"
         android:layout_marginTop="5dp"
         android:background="@null"
-        android:layout_gravity = "top|right"
         android:src="@drawable/post_icon" />
-
-    
 
 </FrameLayout>

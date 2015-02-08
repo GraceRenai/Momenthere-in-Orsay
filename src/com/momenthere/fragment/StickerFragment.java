@@ -1,4 +1,4 @@
-package com.momenthere.stickerwall;
+package com.momenthere.fragment;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -69,23 +69,24 @@ public class StickerFragment extends Fragment {
 	private ImageButton mode;
 
 	private Activity mActivity;
+
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
 		mActivity = activity;
 
 	}
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 
-		View rootView = inflater.inflate(R.layout.fragment_stickerwall, container,
-				false);
+		View rootView = inflater.inflate(R.layout.fragment_stickerwall,
+				container, false);
 
 		return rootView;
 	}
-	
+
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
@@ -98,16 +99,15 @@ public class StickerFragment extends Fragment {
 
 		Bundle extras = mActivity.getIntent().getExtras();
 		username = extras.getString("username");
-		
-		//???
-//		mActivity.requestWindowFeature(Window.FEATURE_NO_TITLE);
-//		int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;
-//		Window myWindow = mActivity.getWindow();
-//		myWindow.setFlags(flag, flag);
-//		Toast.makeText(mActivity.getApplicationContext(),
-//				"Welcome to MomentHere in Orsay", Toast.LENGTH_SHORT).show();
-//		mActivity.setContentView(R.layout.activity_main);
 
+		// ???
+		// mActivity.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		// int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;
+		// Window myWindow = mActivity.getWindow();
+		// myWindow.setFlags(flag, flag);
+		// Toast.makeText(mActivity.getApplicationContext(),
+		// "Welcome to MomentHere in Orsay", Toast.LENGTH_SHORT).show();
+		// mActivity.setContentView(R.layout.activity_main);
 
 		text1 = (TextView) mActivity.findViewById(R.id.text1);
 		text2 = (TextView) mActivity.findViewById(R.id.text2);
@@ -131,26 +131,55 @@ public class StickerFragment extends Fragment {
 		/**
 		 * new
 		 */
-//		mode = (ImageButton) mActivity.findViewById(R.id.imageButton1);
-//		mode.setOnClickListener(new OnClickListener() {
-//
+		mode = (ImageButton) mActivity.findViewById(R.id.imageButton1);
+
+		mode.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+//				postcard =  new Postcard()
+				
+			}
+
 //			@Override
 //			public void onClick(View v) {
-//				Intent intent = new Intent();
-//				intent.setClass(mActivity..this, Postcard.class);
-//				intent.putExtra("username", username);
-//				startActivity(intent);
-//				finish();
+//				if (fragment  = new Postcard()
+//					FragmentManager fragmentManager = getFragmentManager();
+//					// replace the pre-fragment
+//					fragmentManager.beginTransaction()
+//							.replace(R.id.frame_container, fragment).commit();
+//
+//					// update selected item and title, then close the drawer
+//					mDrawerList.setItemChecked(position, true);
+//					mDrawerList.setSelection(position);
+//					setTitle(navMenuTitles[position]);
+//					mDrawerLayout.closeDrawer(mDrawerList);
+//				} else {
+//					// error in creating fragment
+//					Log.e("MainActivity", "Error in creating fragment");
+//				}
 //
 //			}
-//
-//		});
+			
+			
+			//
+			// @Override
+			// public void onClick(View v) {
+			// Intent intent = new Intent();
+			// intent.setClass(mActivity..this, Postcard.class);
+			// intent.putExtra("username", username);
+			// startActivity(intent);
+			// finish();
+			//
+			// }
+			//
+		});
 
 		button.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Dialog dialog = new MyDialog(mActivity,
-						R.style.MyDialog, new MyDialogListener() {
+				Dialog dialog = new MyDialog(mActivity, R.style.MyDialog,
+						new MyDialogListener() {
 
 							@Override
 							public void onOkClick(String message)
@@ -221,7 +250,6 @@ public class StickerFragment extends Fragment {
 			}
 		});
 	}
-
 
 	public void updateView(TextView text1, TextView text2, TextView text3,
 			TextView text4, TextView text5, TextView text6, TextView text7,

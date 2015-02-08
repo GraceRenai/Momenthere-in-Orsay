@@ -1,60 +1,30 @@
 package com.momenthere.main;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.momenthere.HttpUtils;
 import com.momenthere.Message;
-import com.momenthere.MyDialog;
-import com.momenthere.MyDialogListener;
-import com.momenthere.Postcard;
 import com.momenthere.R;
-import com.momenthere.R.id;
-import com.momenthere.R.layout;
-import com.momenthere.R.style;
 import com.momenthere.fragment.PostcardFragment;
 import com.momenthere.fragment.StickerFragment;
+import com.momenthere.fragment.TrackmapFragment;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.app.Dialog;
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Context;
-import android.content.Intent;
 import android.content.res.TypedArray;
-import android.location.Location;
-import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.text.style.UnderlineSpan;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -141,17 +111,15 @@ public class MainActivity extends Activity {
 		adapter = new NavDrawerListAdapter(getApplicationContext(),
 				navDrawerItems);
 		mDrawerList.setAdapter(adapter);
-//we
+		// we
 		// enabling action bar app icon and behaving it as toggle button
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		getActionBar().setHomeButtonEnabled(true);
 
 		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
 				R.drawable.ic_drawer, // nav menu toggle icon
-				R.string.app_name, // nav drawer open - description for
-									// accessibility
-				R.string.app_name // nav drawer close - description for
-									// accessibility
+				R.string.app_name
+		// accessibility
 		) {
 			public void onDrawerClosed(View view) {
 				getActionBar().setTitle(mTitle);
@@ -194,7 +162,7 @@ public class MainActivity extends Activity {
 				"Welcome to MomentHere in Orsay", Toast.LENGTH_SHORT).show();
 		Log.i("fragment", "okay2");
 
-		init(postion );
+		init(postion);
 
 	}
 
@@ -208,18 +176,18 @@ public class MainActivity extends Activity {
 		case 1:
 			fragment = new StickerFragment();
 			break;
-		 case 2:
+		case 2:
 			fragment = new PostcardFragment();
-		// break;
-		// case 3:
-		// fragment = new CommunityFragment();
-		// break;
-		// case 4:
-		// fragment = new PagesFragment();
-		// break;
-		// case 5:
-		// fragment = new WhatsHotFragment();
-		// break;
+			break;
+		case 3:
+			fragment = new TrackmapFragment();
+			// break;
+			// case 4:
+			// fragment = new PagesFragment();
+			// break;
+			// case 5:
+			// fragment = new WhatsHotFragment();
+			// break;
 
 		default:
 			break;

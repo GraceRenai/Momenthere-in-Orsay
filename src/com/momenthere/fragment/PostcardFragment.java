@@ -2,7 +2,6 @@ package com.momenthere.fragment;
 
 import com.momenthere.AskForAddress;
 import com.momenthere.AskForAddressListener;
-import com.momenthere.Postcard;
 import com.momenthere.R;
 import com.momenthere.main.MainActivity;
 

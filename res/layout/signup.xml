@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/login_background"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="95px"
+        android:layout_marginTop="50px"
+        android:background="@drawable/login_logo" >
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:padding="0.0dip" >
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="150.0dip" >
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="40.0dip" >
+
+                    <EditText
+                        android:id="@+id/user_name_edit"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_alignParentLeft="true"
+                        android:fontFamily="Avenir Next"
+                        android:textColorHint="#ffffff"
+                        android:background="@color/transGray"
+                        android:hint="Username"
+                        android:imeOptions="actionNext"
+                        android:maxLength="20"
+                        android:paddingLeft="10.0dip"
+                        android:singleLine="true"
+                        android:textSize="27px" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2px"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="40.0dip" >
+
+                    <EditText
+                        android:id="@+id/password_edit"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:hint="Password"
+                        android:textColorHint="#ffffff"
+                        android:background="@color/transGray"
+                        android:fontFamily="Avenir Next"
+                        android:imeOptions="actionNext"
+                        android:inputType="textPassword"
+                        android:maxLength="16"
+                        android:paddingLeft="10.0dip"
+                        android:singleLine="true"
+                        android:textSize="27px" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2px"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="40.0dip" >
+
+                    <EditText
+                        android:id="@+id/confirm_password_edit"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:hint="Password confirm"
+                        android:imeOptions="actionNext"
+                        android:fontFamily="Avenir Next"
+                        android:textColorHint="#ffffff"
+                        android:inputType="textPassword"
+                        android:background="@color/transGray"
+                        android:maxLength="16"
+                        android:paddingLeft="10.0dip"
+                        android:singleLine="true"
+                        android:textSize="27px" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/BtnRegister"
+                android:layout_width="280.0dip"
+                android:layout_height="38.0dip"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="0.0dip"
+                android:layout_marginTop="20.0dip"
+                android:text="Sign up"
+                android:background="@color/transOrange"
+                android:textSize="16.0dip" />
+
+            <Button
+                android:id="@+id/BtnCancel"
+                android:layout_width="100.0dip"
+                android:layout_height="60.0dip"
+                android:layout_marginTop="0.0dip"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:textColor = "#ffffff"
+                android:text="@string/cancel"
+                android:textSize="16.0dip" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

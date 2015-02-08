@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/login_background">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="95px"
+        android:layout_marginTop="50px"
+        android:background="@drawable/login_logo" >
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="260dp" 
+        android:layout_marginTop="175dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:padding="0.0dip" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5.0dip"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+               <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="60px" >
+
+                    <EditText
+                        android:id="@+id/LoginName"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_alignParentRight="true"
+                        android:background="@color/transGray"
+                        android:textColorHint="#ffffff"
+                        android:hint="Username"
+                        android:imeOptions="actionNext"
+                        android:paddingLeft="10.0dip"
+                        android:paddingRight="30.0dip"
+                        android:singleLine="true"
+                        android:textSize="27px" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/usernameerrorid"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="58.0dip"
+                android:text="error"
+                android:textColor="#ffff0000"
+                android:textSize="13.0dip"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2.0dip"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="60px" >
+
+                    <EditText
+                        android:id="@+id/password"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:textColorHint="#ffffff"
+                        android:fontFamily="Avenir Next"
+                        android:hint="Password"
+                        android:imeOptions="actionDone"
+                        android:inputType="textPassword"
+                        android:maxLength="16"
+                        android:paddingLeft="10.0dip"
+                        android:background="@color/transGray"
+                        android:singleLine="true"
+                        android:textSize="27px" />
+
+
+                </RelativeLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/passworderrorid"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginLeft="58.0dip"
+                android:text="error"
+                android:textColor="#ffff0000"
+                android:textSize="13.0dip"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/BtnMenulogin"
+                android:layout_width="420px"
+                android:layout_height="60px"
+                android:layout_gravity="center"
+                android:layout_marginBottom="0.0dip"
+                android:layout_marginTop="21.0dp"
+                android:background="@color/transOrange"
+                android:text="Login"
+                android:fontFamily="Avenir Next"
+                android:textSize="27px" />
+            <Button
+                android:id="@+id/BtnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="103px"
+                android:fontFamily="Avenir Next"
+                android:background="@null"
+                android:gravity="center"
+                android:paddingLeft="10.0dip"
+                android:paddingRight="10.0dip"
+                android:text="@string/signup"
+                android:textColor="#FFFFFF"
+                android:textSize="23px"
+               />
+            
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_height="250dp"
+    android:id="@+id/FrameLayout1" >
+
+<RelativeLayout
+    android:id="@+id/messageBackground"
+    android:layout_width="wrap_content"
+    android:layout_height="200dp"
+    android:layout_gravity="center|center_vertical"
+    android:background="@drawable/path2"
+    android:scaleType="fitCenter" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/zipCode"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/button_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/zipCode"
+            android:layout_toRightOf="@+id/linearLayout1"
+            android:background="#00000000"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cancel" />
+
+        <ImageButton
+            android:id="@+id/button_ok"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="#00000000"
+            android:scaleType="centerCrop"
+            android:src="@drawable/send" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/receipant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="21dp"
+        android:background="#ffffff"
+        android:ems="10"
+        android:hint="To whom"
+        android:inputType="textPersonName"
+        android:padding="3dip"
+        android:textColorHint="@color/backColor">
+        <requestFocus android:layout_width="wrap_content" />
+        </EditText>
+
+    <EditText
+        android:id="@+id/zipCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/postalAddress"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:background="#ffffff"
+        android:ems="10"
+        android:hint="Zip code"
+        android:inputType="number"
+        android:padding="3dip"
+        android:textColorHint="@color/backColor" />
+
+    <EditText
+        android:id="@+id/postalAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/receipant"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="14dp"
+        android:background="#ffffff"
+        android:ems="10"
+        android:fontFamily="Avenir Next"
+        android:hint="Address"
+        android:inputType="textPostalAddress"
+        android:padding="3dip"
+        android:textColorHint="@color/backColor" />
+
+</RelativeLayout>
+
+</FrameLayout>

@@ -1,0 +1,137 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background = "@color/backColor"
+    tools:context="${relativePackage}.${activityClass}" >
+<LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:src="@drawable/banner" />
+
+
+
+</LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop = "10dp"
+        android:id="@+id/buttons" >
+        
+    <ImageButton
+        android:id="@+id/takePhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/button_camera"
+        android:layout_weight="1"
+        android:background="@null" />
+
+    <ImageButton
+        android:id="@+id/gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/button_pic"
+        android:layout_weight="1"
+        android:background="@null"/>
+
+    <ImageButton
+        android:id="@+id/textWrite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/button_write"
+        android:layout_weight="1"
+        android:background="@null" />
+
+    <ImageButton
+        android:id="@+id/audio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/button_audio"
+        android:layout_weight="1"
+        android:background="@null" />
+    <ImageButton
+        android:id="@+id/video"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/button_video"
+          android:layout_weight="1"
+        android:background="@null" />
+        
+    </LinearLayout>
+
+<LinearLayout
+    android:layout_width="fill_parent" 
+    android:layout_height="300dp"
+    android:layout_gravity="center">
+
+<RelativeLayout 
+    android:layout_width="fill_parent" 
+    android:layout_height="fill_parent"
+    android:layout_gravity="center">
+    
+    <ImageView
+        android:id="@+id/postcard"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/postcard1" />
+
+    <EditText
+        android:id="@+id/postText"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@+id/postcard"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="70dp"
+        android:ems="10"  
+        android:inputType="textMultiLine"
+        android:textSize="16dp"
+        android:textColor="#000000" 
+        android:background="@null"/>
+
+</RelativeLayout>
+</LinearLayout>
+<LinearLayout 
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    android:gravity="right">
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:id="@+id/sendButton"
+        android:src="@drawable/button_confirm" />
+
+</LinearLayout>
+</LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right" >
+
+               <ImageButton
+                   android:id="@+id/navWall"
+                   android:layout_marginTop = "5dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:background = "@null"
+                   android:src="@drawable/nav_wall" />
+
+    </RelativeLayout>
+
+
+</FrameLayout>

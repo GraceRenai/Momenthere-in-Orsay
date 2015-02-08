@@ -31,6 +31,7 @@ import com.momenthere.R;
 import com.momenthere.R.id;
 import com.momenthere.R.layout;
 import com.momenthere.R.style;
+import com.momenthere.fragment.PostcardFragment;
 import com.momenthere.fragment.StickerFragment;
 
 import android.annotation.SuppressLint;
@@ -202,14 +203,13 @@ public class MainActivity extends Activity {
 		Fragment fragment = null;
 		switch (position) {
 		case 0:
-
 			fragment = new StickerFragment();
 			break;
 		case 1:
 			fragment = new StickerFragment();
 			break;
-		// case 2:
-		// fragment = new PostcardFragment();
+		 case 2:
+			fragment = new PostcardFragment();
 		// break;
 		// case 3:
 		// fragment = new CommunityFragment();

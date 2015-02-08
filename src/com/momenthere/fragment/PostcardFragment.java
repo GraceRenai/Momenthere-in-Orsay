@@ -55,7 +55,7 @@ public class PostcardFragment extends Fragment {
 
 	}
 
-	public void onActivityCreate(Bundle savedInstanceState) {
+	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		if (android.os.Build.VERSION.SDK_INT > 9) {
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
@@ -97,7 +97,6 @@ public class PostcardFragment extends Fragment {
 			public void onClick(View v) {
 
 			}
-
 		});
 		sendButton.setOnClickListener(new OnClickListener() {
 

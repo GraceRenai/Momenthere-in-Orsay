@@ -133,12 +133,14 @@ public class StickerFragment extends Fragment {
 		 */
 		mode = (ImageButton) mActivity.findViewById(R.id.imageButton1);
 
+		Log.i("sha","eee" + getString(R.id.imageButton1));
 		mode.setOnClickListener(new OnClickListener() {
-
+			
 			@Override
 			public void onClick(View v) {
-//				postcard =  new Postcard()
-				
+				Fragment postcard =  new PostcardFragment();
+				FragmentManager fragmentManager = mActivity.getFragmentManager();
+				fragmentManager.beginTransaction().replace(R.id.stickerwall, postcard).commit();
 			}
 
 //			@Override

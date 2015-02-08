@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ import android.content.Intent;
  * @author Xiuming XU (gracexuxiuming@gmail.com)
  */
 public class PostcardFragment extends Fragment {
+
 	private ImageButton button1, button2, button3, button4, button5, navWall,
 			sendButton;
 	public ImageView postPreview;
@@ -40,6 +42,7 @@ public class PostcardFragment extends Fragment {
 
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
+		Log.i("sha","1");
 		mActivity = activity;
 	}
 
@@ -47,7 +50,8 @@ public class PostcardFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.postcard, container, false);
-		return container;
+		Log.i("sha","2");
+		return rootView;
 
 	}
 
@@ -62,7 +66,7 @@ public class PostcardFragment extends Fragment {
 
 		Bundle extras = mActivity.getIntent().getExtras();
 		username = extras.getString("username");
-
+		Log.i("sha","3");
 		button1 = (ImageButton) mActivity.findViewById(R.id.takePhoto);
 		button2 = (ImageButton) mActivity.findViewById(R.id.gallery);
 		button3 = (ImageButton) mActivity.findViewById(R.id.textWrite);
@@ -115,10 +119,10 @@ public class PostcardFragment extends Fragment {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				Intent intent = new Intent();
-				intent.setClass(Postcard.this, MainActivity.class);
+				intent.setClass(mActivity, MainActivity.class);
 				intent.putExtra("username", username);
 				startActivity(intent);
-				finish();
+				mActivity.finish();
 			}
 
 		});

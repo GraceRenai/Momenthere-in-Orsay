@@ -1,8 +1,6 @@
 //Coder: Lan Wang
 package com.momenthere.communication;
 
-
-
 import java.sql.Timestamp;
 import java.util.Date;
 

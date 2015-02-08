@@ -31,10 +31,6 @@ import com.momenthere.R;
 import com.momenthere.R.id;
 import com.momenthere.R.layout;
 import com.momenthere.R.style;
-import com.momenthere.slidingmenu.CommunityFragment;
-import com.momenthere.slidingmenu.PagesFragment;
-import com.momenthere.slidingmenu.PostcardFragment;
-import com.momenthere.slidingmenu.WhatsHotFragment;
 import com.momenthere.stickerwall.StickerFragment;
 
 import android.annotation.SuppressLint;
@@ -144,6 +140,36 @@ public class MainActivity extends Activity {
 				navDrawerItems);
 		mDrawerList.setAdapter(adapter);
 
+		// enabling action bar app icon and behaving it as toggle button
+		getActionBar().setDisplayHomeAsUpEnabled(true);
+		getActionBar().setHomeButtonEnabled(true);
+
+		mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,
+				R.drawable.ic_drawer, // nav menu toggle icon
+				R.string.app_name, // nav drawer open - description for
+									// accessibility
+				R.string.app_name // nav drawer close - description for
+									// accessibility
+		) {
+			public void onDrawerClosed(View view) {
+				getActionBar().setTitle(mTitle);
+				// calling onPrepareOptionsMenu() to show action bar icons
+				invalidateOptionsMenu();
+			}
+
+			public void onDrawerOpened(View drawerView) {
+				getActionBar().setTitle(mDrawerTitle);
+				// calling onPrepareOptionsMenu() to hide action bar icons
+				invalidateOptionsMenu();
+			}
+		};
+		mDrawerLayout.setDrawerListener(mDrawerToggle);
+
+		if (savedInstanceState == null) {
+			// on first time display view for first nav item
+			displayView(0);
+		}
+
 		if (android.os.Build.VERSION.SDK_INT > 9) {
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
 					.permitAll().build();
@@ -158,130 +184,16 @@ public class MainActivity extends Activity {
 		username = extras.getString("username");
 		Log.i("json", "2");
 
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;
-		Window myWindow = this.getWindow();
-		myWindow.setFlags(flag, flag);
+		// requestWindowFeature(Window.FEATURE_NO_TITLE);
+		// int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;
+		// Window myWindow = this.getWindow();
+		// myWindow.setFlags(flag, flag);
 		Toast.makeText(getApplicationContext(),
 				"Welcome to MomentHere in Orsay", Toast.LENGTH_SHORT).show();
-		setContentView(R.layout.activity_main);
+		Log.i("fragment", "okay2");
 
-		Log.i("json", "3");
-
-		text1 = (TextView) findViewById(R.id.text1);
-		text2 = (TextView) findViewById(R.id.text2);
-		text3 = (TextView) findViewById(R.id.text3);
-		text4 = (TextView) findViewById(R.id.text4);
-		text5 = (TextView) findViewById(R.id.text5);
-		text6 = (TextView) findViewById(R.id.text6);
-		text7 = (TextView) findViewById(R.id.text7);
-		text8 = (TextView) findViewById(R.id.text8);
-		textView1 = (TextView) findViewById(R.id.textViewUserName);
-
-		SpannableString current_user = new SpannableString(" \n  Hi, "
-				+ username);
-		textView1.setText(current_user);
-		Log.i("json", "4");
 		init("orsay");
-		Log.i("json", "5");
-		updateView(text1, text2, text3, text4, text5, text6, text7, text8);
 
-		button = (ImageButton) findViewById(R.id.buttonMessage);
-		/**
-		 * new
-		 */
-		mode = (ImageButton) findViewById(R.id.imageButton1);
-		mode.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				Intent intent = new Intent();
-				intent.setClass(MainActivity.this, Postcard.class);
-				intent.putExtra("username", username);
-				startActivity(intent);
-				finish();
-
-			}
-
-		});
-
-		button.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Dialog dialog = new MyDialog(MainActivity.this,
-						R.style.MyDialog, new MyDialogListener() {
-
-							@Override
-							public void onOkClick(String message)
-									throws ClientProtocolException, IOException {
-								// TODO Auto-generated method stub
-								// Toast.makeText(getApplicationContext(),
-								// message, Toast.LENGTH_SHORT).show();
-								Message new_guest = new Message();
-								new_guest.name = username;
-								new_guest.message = message;
-								new_guest.time = new Timestamp(date).toString()
-										.substring(0, 10);
-								String time = new_guest.time;
-
-								// Toast.makeText(getApplicationContext(),
-								// new_guest.time, Toast.LENGTH_SHORT).show();
-
-								new_guest.location = "orsay";
-
-								NameValuePair pair1 = new BasicNameValuePair(
-										"name", username);
-								NameValuePair pair2 = new BasicNameValuePair(
-										"message", message);
-								NameValuePair pair3 = new BasicNameValuePair(
-										"times", time);
-								// NameValuePair pair3 = new
-								// BasicNameValuePair("time,","2014-1-1");
-								NameValuePair pair4 = new BasicNameValuePair(
-										"location", "orsay");
-
-								List<NameValuePair> pairList = new ArrayList<NameValuePair>();
-								pairList.add(pair1);
-								pairList.add(pair2);
-								pairList.add(pair3);
-								pairList.add(pair4);
-
-								String URL = "http://54.93.57.115:8080/myhttp/servlet/InsertAction";
-								HttpEntity requestHttpEntity;
-								requestHttpEntity = new UrlEncodedFormEntity(
-										pairList);
-								HttpPost httpPost = new HttpPost(URL);
-								httpPost.setEntity(requestHttpEntity);
-								HttpClient httpClient = new DefaultHttpClient();
-								HttpResponse response = httpClient
-										.execute(httpPost);
-								HttpEntity httpEntity = response.getEntity();
-								InputStream inputStream = httpEntity
-										.getContent();
-								BufferedReader reader = new BufferedReader(
-										new InputStreamReader(inputStream));
-
-								int i = 0, j = 0, k = 0;
-								for (i = 7; i > 0; i--) {
-									for (j = 0; j < 3; j++) {
-										k = i - 1;
-										info[i][j] = info[k][j];
-									}
-								}
-								info[0][0] = new_guest.message;
-								info[0][1] = new_guest.name;
-								info[0][2] = new_guest.time.toString()
-										.substring(0, 10);
-
-								updateView(text1, text2, text3, text4, text5,
-										text6, text7, text8);
-
-							}
-						});
-				dialog.setContentView(R.layout.dialog);
-				dialog.show();
-			}
-		});
 	}
 
 	private void displayView(int position) {
@@ -289,23 +201,25 @@ public class MainActivity extends Activity {
 		Fragment fragment = null;
 		switch (position) {
 		case 0:
+			Log.i("fragment", "okay");
+
 			fragment = new StickerFragment();
 			break;
 		case 1:
 			fragment = new StickerFragment();
 			break;
-//		case 2:
-//			fragment = new PostcardFragment();
-//			break;
-//		case 3:
-//			fragment = new CommunityFragment();
-//			break;
-//		case 4:
-//			fragment = new PagesFragment();
-//			break;
-//		case 5:
-//			fragment = new WhatsHotFragment();
-//			break;
+		// case 2:
+		// fragment = new PostcardFragment();
+		// break;
+		// case 3:
+		// fragment = new CommunityFragment();
+		// break;
+		// case 4:
+		// fragment = new PagesFragment();
+		// break;
+		// case 5:
+		// fragment = new WhatsHotFragment();
+		// break;
 
 		default:
 			break;
@@ -326,21 +240,6 @@ public class MainActivity extends Activity {
 			// error in creating fragment
 			Log.e("MainActivity", "Error in creating fragment");
 		}
-	}
-
-	public void updateView(TextView text1, TextView text2, TextView text3,
-			TextView text4, TextView text5, TextView text6, TextView text7,
-			TextView text8) {
-
-		text1.setText(info[0][0] + "\n\n" + info[0][1] + "\n" + info[0][2]);
-		text2.setText(info[1][0] + "\n\n" + info[1][1] + "\n" + info[1][2]);
-		text3.setText(info[2][0] + "\n\n" + info[2][1] + "\n" + info[2][2]);
-		text4.setText(info[3][0] + "\n\n" + info[3][1] + "\n" + info[3][2]);
-		text5.setText(info[4][0] + "\n\n" + info[4][1] + "\n" + info[4][2]);
-		text6.setText(info[5][0] + "\n\n" + info[5][1] + "\n" + info[5][2]);
-		text7.setText(info[6][0] + "\n\n" + info[6][1] + "\n" + info[6][2]);
-		text8.setText(info[7][0] + "\n\n" + info[7][1] + "\n" + info[7][2]);
-
 	}
 
 	public void init(String location) {

@@ -1,5 +1,9 @@
 //Coder: Lan Wang
+<<<<<<< HEAD:src/com/momenthere/communication/AskForAddress.java
 package com.momenthere.communication;
+=======
+package com.example.momentherelogin;
+>>>>>>> parent of c6f72f1... Beta:src/com/example/momentherelogin/AskForAddress.java
 
 import java.sql.Timestamp;
 import java.util.Date;

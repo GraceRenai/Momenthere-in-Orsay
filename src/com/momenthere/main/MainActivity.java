@@ -31,10 +31,17 @@ import com.momenthere.R;
 import com.momenthere.R.id;
 import com.momenthere.R.layout;
 import com.momenthere.R.style;
+import com.momenthere.slidingmenu.CommunityFragment;
+import com.momenthere.slidingmenu.PagesFragment;
+import com.momenthere.slidingmenu.PostcardFragment;
+import com.momenthere.slidingmenu.WhatsHotFragment;
+import com.momenthere.stickerwall.StickerFragment;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
@@ -53,6 +60,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -87,6 +95,16 @@ public class MainActivity extends Activity {
 	private String username;
 	private ImageButton mode;
 
+	private class SlideMenuClickListener implements
+			ListView.OnItemClickListener {
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position,
+				long id) {
+			// display view for selected nav drawer item
+			displayView(position);
+		}
+	}
+
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -101,8 +119,30 @@ public class MainActivity extends Activity {
 		navMenuIcons = getResources()
 				.obtainTypedArray(R.array.nav_drawer_icons);
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-		
-		
+
+		mDrawerList = (ListView) findViewById(R.id.list_slidermenu);
+
+		navDrawerItems = new ArrayList<NavDrawerItem>();
+
+		// adding nav drawer items to array
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[0], navMenuIcons
+				.getResourceId(0, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[1], navMenuIcons
+				.getResourceId(1, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[2], navMenuIcons
+				.getResourceId(2, -1)));
+		navDrawerItems.add(new NavDrawerItem(navMenuTitles[3], navMenuIcons
+				.getResourceId(3, -1)));
+
+		// Recycle the typed array
+		navMenuIcons.recycle();
+
+		mDrawerList.setOnItemClickListener(new SlideMenuClickListener());
+
+		// setting the nav drawer list adapter
+		adapter = new NavDrawerListAdapter(getApplicationContext(),
+				navDrawerItems);
+		mDrawerList.setAdapter(adapter);
 
 		if (android.os.Build.VERSION.SDK_INT > 9) {
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
@@ -242,6 +282,50 @@ public class MainActivity extends Activity {
 				dialog.show();
 			}
 		});
+	}
+
+	private void displayView(int position) {
+		// update the main content by replacing fragments
+		Fragment fragment = null;
+		switch (position) {
+		case 0:
+			fragment = new StickerFragment();
+			break;
+		case 1:
+			fragment = new StickerFragment();
+			break;
+//		case 2:
+//			fragment = new PostcardFragment();
+//			break;
+//		case 3:
+//			fragment = new CommunityFragment();
+//			break;
+//		case 4:
+//			fragment = new PagesFragment();
+//			break;
+//		case 5:
+//			fragment = new WhatsHotFragment();
+//			break;
+
+		default:
+			break;
+		}
+
+		if (fragment != null) {
+			FragmentManager fragmentManager = getFragmentManager();
+			// replace the pre-fragment
+			fragmentManager.beginTransaction()
+					.replace(R.id.frame_container, fragment).commit();
+
+			// update selected item and title, then close the drawer
+			mDrawerList.setItemChecked(position, true);
+			mDrawerList.setSelection(position);
+			setTitle(navMenuTitles[position]);
+			mDrawerLayout.closeDrawer(mDrawerList);
+		} else {
+			// error in creating fragment
+			Log.e("MainActivity", "Error in creating fragment");
+		}
 	}
 
 	public void updateView(TextView text1, TextView text2, TextView text3,

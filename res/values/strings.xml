@@ -1,29 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="app_name">MomentHere</string>
+    <string name="app_name">MomentHereLogin</string>
     <string name="hello_world">Hello world!</string>
-    <string name="signup"><u>Sign up</u></string>
-    <string name="cancel"><u>Cancel</u></string>
-
-    <string-array name="nav_drawer_items">
-        <item>Profile</item>
-        <item>Leave stickers</item>
-        <item>Send postcards</item>
-        <item>Track map</item>
-        <item>Pages</item>
-        <item>What\'s Hot</item>
-    </string-array>
-    
-      <!-- Nav Drawer List Item Icons -->
-    <!-- Keep them in order as the titles are in -->
-    <array name="nav_drawer_icons">
-        <item>@drawable/ic_home</item>
-        <item>@drawable/ic_people</item>
-        <item>@drawable/ic_photos</item>
-        <item>@drawable/ic_communities</item>
-        <item>@drawable/ic_pages</item>
-        <item>@drawable/ic_whats_hot</item>
-    </array>
-
+    <string name = "signup"><u>Sign up</u></string>
+    <string name = "cancel"><u>Cancel</u></string>
 </resources>

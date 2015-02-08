@@ -4,4 +4,18 @@
     <string name="hello_world">Hello world!</string>
     <string name = "signup"><u>Sign up</u></string>
     <string name = "cancel"><u>Cancel</u></string>
+        <!-- Nav Drawer Menu Items -->
+    <string-array name="nav_drawer_items">
+        <item >Profile</item>
+        <item >Leave stickers</item>
+        <item >Send postcards</item>
+        <item >Track map</item>
+        <item >Pages</item>
+        <item >What\'s Hot</item>
+    </string-array>
+        <!-- Nav Drawer List Item Icons -->
+    <!-- Keep them in order as the titles are in -->
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_home</item>
+    </array>
 </resources>

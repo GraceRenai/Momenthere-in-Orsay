@@ -2,12 +2,9 @@ package com.momenthere.main;
 /**
  * @author Xiuming XU (gracexuxiuming@gmail.com)
  */
-package com.moementhere.slidingmenu.adapter;
-
 import java.util.ArrayList;
 
 import com.momenthere.R;
-import com.momenthere.slidingmenu.model.NavDrawerItem;
 
 import android.app.Activity;
 import android.content.Context;

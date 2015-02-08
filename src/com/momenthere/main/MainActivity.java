@@ -31,7 +31,6 @@ import com.momenthere.R;
 import com.momenthere.R.id;
 import com.momenthere.R.layout;
 import com.momenthere.R.style;
-import com.momenthere.slidingmenu.model.NavDrawerItem;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -61,11 +60,10 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	// drawerlayout
-	
+
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
-    
 
 	// nav drawer title
 	private CharSequence mDrawerTitle;
@@ -80,9 +78,6 @@ public class MainActivity extends Activity {
 	private ArrayList<NavDrawerItem> navDrawerItems;
 	private NavDrawerListAdapter adapter;
 
-	
-	
-
 	private ImageButton button;
 	public TextView text1, text2, text3, text4, text5, text6, text7, text8,
 			textView1;
@@ -95,6 +90,19 @@ public class MainActivity extends Activity {
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+
+		// drawe layout
+		mTitle = mDrawerTitle = getTitle();
+		// load slide menu items
+		navMenuTitles = getResources().getStringArray(R.array.nav_drawer_items);
+		// nav drawer icons from resources
+		navMenuIcons = getResources()
+				.obtainTypedArray(R.array.nav_drawer_icons);
+		mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+		
+		
 
 		if (android.os.Build.VERSION.SDK_INT > 9) {
 			StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
@@ -149,7 +157,7 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				Intent intent = new Intent();
 				intent.setClass(MainActivity.this, Postcard.class);
-				intent.putExtra("username",username);
+				intent.putExtra("username", username);
 				startActivity(intent);
 				finish();
 

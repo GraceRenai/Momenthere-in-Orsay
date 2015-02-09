@@ -111,10 +111,8 @@ public class PostcardFragment extends Fragment {
 
 		});
 		navWall.setOnClickListener(new OnClickListener() {
-
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
 				Intent intent = new Intent();
 				intent.setClass(mActivity, MainActivity.class);
 				intent.putExtra("username", username);
@@ -143,13 +141,9 @@ public class PostcardFragment extends Fragment {
 					edit.setEnabled(false);
 					edit.setVisibility(View.INVISIBLE);
 				}
-
 			}
 
 		});
-
-
-
 	}
 
 	

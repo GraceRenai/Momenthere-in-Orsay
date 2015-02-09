@@ -7,11 +7,11 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.momenthere.HttpUtils;
-import com.momenthere.Message;
 import com.momenthere.R;
+import com.momenthere.fragment.Message;
 import com.momenthere.fragment.PostcardFragment;
 import com.momenthere.fragment.StickerFragment;
-import com.momenthere.fragment.TrackmapFragment;
+import com.momenthere.fragment.trackmap.TrackmapFragment;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -33,7 +33,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements Utility{
 	// drawerlayout
 
 	private DrawerLayout mDrawerLayout;
@@ -212,7 +212,7 @@ public class MainActivity extends Activity {
 
 	public void init(String location) {
 
-		String path = "http://54.93.57.115:8080/myhttp2/servlet/MessageAction?action_flag="
+		String path = "http://"+ base +"/myhttp2/servlet/MessageAction?action_flag="
 				+ location;
 		String jsonString = HttpUtils.getJsonContent(path);
 		// List<Message> list = GsonTools.getMessages(jsonString,

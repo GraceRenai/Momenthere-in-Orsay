@@ -22,13 +22,13 @@ import org.apache.http.message.BasicNameValuePair;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.momenthere.HttpUtils;
-import com.momenthere.Message;
 import com.momenthere.MyDialog;
 import com.momenthere.MyDialogListener;
 import com.momenthere.R;
 import com.momenthere.main.MainActivity;
 import com.momenthere.main.NavDrawerItem;
 import com.momenthere.main.NavDrawerListAdapter;
+import com.momenthere.main.Utility;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -52,7 +52,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class StickerFragment extends Fragment {
+public class StickerFragment extends Fragment implements Utility{
+
+	
+	private String URL = "http://"+ base +"myhttp2/servlet/InsertAction";
 
 	private ImageButton button;
 	public TextView text1, text2, text3, text4, text5, text6, text7, text8,
@@ -64,6 +67,7 @@ public class StickerFragment extends Fragment {
 	private ImageButton mode;
 
 	private Activity mActivity;
+	private String position = "orsay";
 
 	@Override
 	public void onAttach(Activity activity) {
@@ -118,14 +122,11 @@ public class StickerFragment extends Fragment {
 				+ username);
 		textView1.setText(current_user);
 		Log.i("json", "4");
-		init("orsay");
+		init(position);
 		Log.i("json", "5");
 		updateView(text1, text2, text3, text4, text5, text6, text7, text8);
 
 		button = (ImageButton) mActivity.findViewById(R.id.buttonMessage);
-		/**
-		 * new
-		 */
 		mode = (ImageButton) mActivity.findViewById(R.id.imageButton1);
 
 		Log.i("sha","eee" + getString(R.id.imageButton1));
@@ -138,38 +139,7 @@ public class StickerFragment extends Fragment {
 				fragmentManager.beginTransaction().replace(R.id.stickerwall, postcard).commit();
 			}
 
-//			@Override
-//			public void onClick(View v) {
-//				if (fragment  = new Postcard()
-//					FragmentManager fragmentManager = getFragmentManager();
-//					// replace the pre-fragment
-//					fragmentManager.beginTransaction()
-//							.replace(R.id.frame_container, fragment).commit();
-//
-//					// update selected item and title, then close the drawer
-//					mDrawerList.setItemChecked(position, true);
-//					mDrawerList.setSelection(position);
-//					setTitle(navMenuTitles[position]);
-//					mDrawerLayout.closeDrawer(mDrawerList);
-//				} else {
-//					// error in creating fragment
-//					Log.e("MainActivity", "Error in creating fragment");
-//				}
-//
-//			}
-			
-			
-			//
-			// @Override
-			// public void onClick(View v) {
-			// Intent intent = new Intent();
-			// intent.setClass(mActivity..this, Postcard.class);
-			// intent.putExtra("username", username);
-			// startActivity(intent);
-			// finish();
-			//
-			// }
-			//
+
 		});
 
 		button.setOnClickListener(new OnClickListener() {
@@ -188,8 +158,6 @@ public class StickerFragment extends Fragment {
 										.substring(0, 10);
 								String time = new_guest.time;
 
-								// Toast.makeText(getApplicationContext(),
-								// new_guest.time, Toast.LENGTH_SHORT).show();
 
 								new_guest.location = "orsay";
 
@@ -210,7 +178,6 @@ public class StickerFragment extends Fragment {
 								pairList.add(pair3);
 								pairList.add(pair4);
 
-								String URL = "http://54.93.57.115:8080/myhttp/servlet/InsertAction";
 								HttpEntity requestHttpEntity;
 								requestHttpEntity = new UrlEncodedFormEntity(
 										pairList);
@@ -265,35 +232,20 @@ public class StickerFragment extends Fragment {
 
 	public void init(String location) {
 
-		String path = "http://54.93.57.115:8080/myhttp2/servlet/MessageAction?action_flag="
+		String path = "http://"+base+"/myhttp2/servlet/MessageAction?action_flag="
 				+ location;
 		String jsonString = HttpUtils.getJsonContent(path);
-		// List<Message> list = GsonTools.getMessages(jsonString,
-		// Message.class);
 		Gson gson = new Gson();
 		List<Message> list = gson.fromJson(jsonString,
 				new TypeToken<List<Message>>() {
 				}.getType());
 
-		/*
-		 * Iterator<Message> it = list.iterator(); while(it.hasNext()){
-		 * Log.i("json", "4.9: "+ it.next()); Log.i("json",
-		 * "4.95: "+it.next().message); }
-		 */
-
-		// Message g = list.get(0);
-		// Log.i("json", "4.0: "+g.getMessage());
-		// System.out.println(list.get(i));// 利用get(int index)方法获得指定索引位置的对象
-		// Toast.makeText(getApplicationContext(), list.get(j).toString(),
-		// Toast.LENGTH_SHORT).show();
 		for (int j = 0; j < list.size(); j++) {
 			info[j][0] = list.get(j).message;
 			info[j][1] = list.get(j).name;
 			info[j][2] = list.get(j).time;
 		}
 
-		// Toast.makeText(getApplicationContext(), list.toString(),
-		// Toast.LENGTH_LONG).show();
 	}
 
 }

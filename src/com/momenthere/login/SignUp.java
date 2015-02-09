@@ -21,6 +21,7 @@ import org.apache.http.message.BasicNameValuePair;
 import com.momenthere.R;
 import com.momenthere.R.id;
 import com.momenthere.R.layout;
+import com.momenthere.main.Utility;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -33,14 +34,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class SignUp extends Activity {
+public class SignUp extends Activity implements Utility{
 	
 	private EditText username;
 	private EditText password;
 	private EditText confirm_password;
 	private Button buttonCancel;
 	private Button buttonRegister;
-    private String baseURL = "http://54.93.57.115:8080/myhttp2/servlet/SignUpAction";	
+    private String baseURL = "http://"+base+"/myhttp2/servlet/SignUpAction";	
 
 	protected void onCreate(Bundle savedInstanceState) {
 				

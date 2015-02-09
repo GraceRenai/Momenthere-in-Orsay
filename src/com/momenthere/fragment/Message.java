@@ -1,4 +1,4 @@
-package com.momenthere;
+package com.momenthere.fragment;
 
 public class Message {
 	public String name;

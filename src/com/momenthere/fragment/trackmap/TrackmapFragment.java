@@ -1,9 +1,16 @@
-package com.momenthere.fragment;
+package com.momenthere.fragment.trackmap;
 
+import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.momenthere.AskForAddress;
 import com.momenthere.AskForAddressListener;
+import com.momenthere.HttpUtils;
 import com.momenthere.R;
+import com.momenthere.fragment.Message;
 import com.momenthere.main.MainActivity;
+import com.momenthere.main.Utility;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -25,7 +32,9 @@ import android.widget.ImageView;
 /**
  * @author Xiuming XU (gracexuxiuming@gmail.com)
  */
-public class TrackmapFragment extends Fragment {
+public class TrackmapFragment extends Fragment implements Utility{
+	
+	private String baseURL = "http://" + base + "/myhttp2/servlet/TrackMap";
 
 	// context
 	private Activity mActivity;
@@ -58,8 +67,6 @@ public class TrackmapFragment extends Fragment {
 		Bundle extras = mActivity.getIntent().getExtras();
 		username = extras.getString("username");
 		Log.i("sha", "3");
-		
-
 	}
 
 	private View.OnClickListener getImage = new OnClickListener() {
@@ -72,4 +79,18 @@ public class TrackmapFragment extends Fragment {
 			startActivityForResult(intent, 0);
 		}
 	};
+	
+	public void init(String location) {
+
+		String path = "http://"+base+"/myhttp2/servlet/MessageAction?action_flag="
+				+ location;
+		String jsonString = HttpUtils.getJsonContent(path);
+		Gson gson = new Gson();
+		List<TrackmapNode> list = gson.fromJson(jsonString,
+				new TypeToken<List<TrackmapNode>>() {
+				}.getType());
+
+//			String test = list.get(1).test;
+
+	}
 }

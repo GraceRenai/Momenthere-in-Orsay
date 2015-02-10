@@ -55,7 +55,7 @@ import android.widget.Toast;
 public class StickerFragment extends Fragment implements Utility{
 
 	
-	private String URL = "http://"+ base +"myhttp2/servlet/InsertAction";
+	private String URL = "http://"+ base +"/servlet/InsertAction";
 
 	private ImageButton button;
 	public TextView text1, text2, text3, text4, text5, text6, text7, text8,
@@ -129,7 +129,6 @@ public class StickerFragment extends Fragment implements Utility{
 		button = (ImageButton) mActivity.findViewById(R.id.buttonMessage);
 		mode = (ImageButton) mActivity.findViewById(R.id.imageButton1);
 
-		Log.i("sha","eee" + getString(R.id.imageButton1));
 		mode.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -177,6 +176,8 @@ public class StickerFragment extends Fragment implements Utility{
 								pairList.add(pair2);
 								pairList.add(pair3);
 								pairList.add(pair4);
+								
+								//Insert action
 
 								HttpEntity requestHttpEntity;
 								requestHttpEntity = new UrlEncodedFormEntity(
@@ -232,7 +233,7 @@ public class StickerFragment extends Fragment implements Utility{
 
 	public void init(String location) {
 
-		String path = "http://"+base+"/myhttp2/servlet/MessageAction?action_flag="
+		String path = "http://"+base+"/servlet/MessageAction?action_flag="
 				+ location;
 		String jsonString = HttpUtils.getJsonContent(path);
 		Gson gson = new Gson();

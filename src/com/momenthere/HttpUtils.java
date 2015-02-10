@@ -29,7 +29,7 @@ public class HttpUtils {
 		}
 		return "";
 	}
-
+	//Get json string into the byte array 
 	private static String changeInputStream(InputStream inputStream) {
 		// TODO Auto-generated method stub
 		String jsonString = "";

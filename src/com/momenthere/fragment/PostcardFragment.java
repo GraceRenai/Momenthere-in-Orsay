@@ -21,6 +21,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.provider.MediaStore.Images.Media;
 
 /**
  * @author Xiuming XU (gracexuxiuming@gmail.com)
@@ -41,7 +43,7 @@ public class PostcardFragment extends Fragment {
 
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
-		Log.i("sha","1");
+		Log.i("sha", "1");
 		mActivity = activity;
 	}
 
@@ -49,7 +51,7 @@ public class PostcardFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(R.layout.postcard, container, false);
-		Log.i("sha","2");
+		Log.i("sha", "2");
 		return rootView;
 
 	}
@@ -65,7 +67,7 @@ public class PostcardFragment extends Fragment {
 
 		Bundle extras = mActivity.getIntent().getExtras();
 		username = extras.getString("username");
-		Log.i("sha","3");
+		Log.i("sha", "3");
 		button1 = (ImageButton) mActivity.findViewById(R.id.takePhoto);
 		button2 = (ImageButton) mActivity.findViewById(R.id.gallery);
 		button3 = (ImageButton) mActivity.findViewById(R.id.textWrite);
@@ -81,7 +83,6 @@ public class PostcardFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-
 				Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 				startActivityForResult(intent, 1);
 
@@ -142,20 +143,33 @@ public class PostcardFragment extends Fragment {
 					edit.setVisibility(View.INVISIBLE);
 				}
 			}
-
 		});
 	}
 
-	
-	
 	private View.OnClickListener getImage = new OnClickListener() {
 
 		@Override
 		public void onClick(View v) {
 			Intent intent = new Intent();
+
 			intent.setAction(Intent.ACTION_PICK);
 			intent.setType("image/*");
 			startActivityForResult(intent, 0);
 		}
 	};
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == 0 && resultCode == -1) {
+			uri = data.getData();
+			postPreview.setImageURI(uri);
+		} else if (requestCode == 1 && resultCode == -1) {
+			Bundle bundle = data.getExtras();
+			Bitmap bitmap = (Bitmap) bundle.get("data");
+			postPreview.setImageBitmap(bitmap);
+			uri = Uri.parse(MediaStore.Images.Media.insertImage(
+					mActivity.getContentResolver(), bitmap, null, null));
+		}
+		super.onActivityResult(requestCode, resultCode, data);
+	}
 }

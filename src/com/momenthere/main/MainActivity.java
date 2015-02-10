@@ -148,11 +148,9 @@ public class MainActivity extends Activity implements Utility{
 
 		super.onCreate(savedInstanceState);
 
-		Log.i("json", "1");
 
 		Bundle extras = this.getIntent().getExtras();
 		username = extras.getString("username");
-		Log.i("json", "2");
 
 		// requestWindowFeature(Window.FEATURE_NO_TITLE);
 		// int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;
@@ -181,13 +179,6 @@ public class MainActivity extends Activity implements Utility{
 			break;
 		case 3:
 			fragment = new TrackmapFragment();
-			// break;
-			// case 4:
-			// fragment = new PagesFragment();
-			// break;
-			// case 5:
-			// fragment = new WhatsHotFragment();
-			// break;
 
 		default:
 			break;
@@ -212,7 +203,7 @@ public class MainActivity extends Activity implements Utility{
 
 	public void init(String location) {
 
-		String path = "http://"+ base +"/myhttp2/servlet/MessageAction?action_flag="
+		String path = "http://"+ base +"/servlet/MessageAction?action_flag="
 				+ location;
 		String jsonString = HttpUtils.getJsonContent(path);
 		// List<Message> list = GsonTools.getMessages(jsonString,

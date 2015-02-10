@@ -41,7 +41,7 @@ public class SignUp extends Activity implements Utility{
 	private EditText confirm_password;
 	private Button buttonCancel;
 	private Button buttonRegister;
-    private String baseURL = "http://"+base+"/myhttp2/servlet/SignUpAction";	
+    private String baseURL = "http://"+base+"/servlet/SignUpAction";	
 
 	protected void onCreate(Bundle savedInstanceState) {
 				

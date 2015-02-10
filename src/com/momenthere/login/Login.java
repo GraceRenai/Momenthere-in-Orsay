@@ -46,7 +46,7 @@ public class Login extends Activity implements Utility {
 	private EditText password;
 	private Button buttonLogin;
 	private Button buttonRegister;
-	private String baseURL = "http://" + base + "/myhttp2/servlet/LoginAction";
+	private String baseURL = "http://" + base + "/servlet/LoginAction";
 
 	@SuppressLint("NewApi")
 	@Override
@@ -116,6 +116,9 @@ public class Login extends Activity implements Utility {
 						Intent intent = new Intent(Login.this,
 								MainActivity.class);
 						intent.putExtra("username", name);
+						
+						Toast.makeText(getApplicationContext(), "name " + name,
+								Toast.LENGTH_SHORT).show();
 						startActivity(intent);
 						finish();
 					}

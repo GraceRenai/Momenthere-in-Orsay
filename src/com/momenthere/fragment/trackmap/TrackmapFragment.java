@@ -25,20 +25,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 
 /**
  * @author Xiuming XU (gracexuxiuming@gmail.com)
  */
-public class TrackmapFragment extends Fragment implements Utility{
-	
-	private String baseURL = "http://" + base + "/myhttp2/servlet/TrackMap";
-
+public class TrackmapFragment extends Fragment implements Utility {
+	private String baseURL = "http://" + base + "/servlet/TrackMapAction";
+	// private String baseURL =
+	// "http://localhost:8080/myhttp/servlet/TrackMapAction";
 	// context
 	private Activity mActivity;
 	private String username;
+	
+	private String TAG = "Okay2";
+	List<Message> list = null;
+	private int nodeSize;
 
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
@@ -67,6 +68,10 @@ public class TrackmapFragment extends Fragment implements Utility{
 		Bundle extras = mActivity.getIntent().getExtras();
 		username = extras.getString("username");
 		Log.i("sha", "3");
+		// TODO add codes....extras
+		// username
+		getData("wanglan");
+
 	}
 
 	private View.OnClickListener getImage = new OnClickListener() {
@@ -79,18 +84,22 @@ public class TrackmapFragment extends Fragment implements Utility{
 			startActivityForResult(intent, 0);
 		}
 	};
-	
-	public void init(String location) {
 
-		String path = "http://"+base+"/myhttp2/servlet/MessageAction?action_flag="
-				+ location;
+	// get json content
+	public void getData(String username) {
+
+		String path = "http://" + base + "/servlet/TrackmapAction?action_flag="
+				+ username;
+		Log.i(TAG, "CONNECT .....OKAY");
 		String jsonString = HttpUtils.getJsonContent(path);
+		Log.i(TAG, jsonString);
 		Gson gson = new Gson();
-		List<TrackmapNode> list = gson.fromJson(jsonString,
-				new TypeToken<List<TrackmapNode>>() {
+		list = gson.fromJson(jsonString,
+				new TypeToken<List<Message>>() {
 				}.getType());
 
-//			String test = list.get(1).test;
-
+		nodeSize = list.size();
+		Log.i(TAG,String.valueOf(nodeSize));
 	}
+
 }

@@ -1676,12 +1676,20 @@ containing a value of this type.
         public static final int swtich=0x7f020055;
         public static final int trackmap_background=0x7f020056;
         public static final int trackmap_banner=0x7f020057;
+        public static final int trackmap_date_inside=0x7f020058;
+        public static final int trackmap_number_inside=0x7f020059;
+        public static final int trackmap_view_eiffeltower=0x7f02005a;
+        public static final int trackmap_view_luvre=0x7f02005b;
+        public static final int trackmap_view_notredame=0x7f02005c;
+        public static final int trackmap_view_triomphe=0x7f02005d;
     }
     public static final class id {
         public static final int BtnCancel=0x7f09006f;
         public static final int BtnMenulogin=0x7f090043;
         public static final int BtnRegister=0x7f090044;
         public static final int FrameLayout1=0x7f090048;
+        public static final int ImageViewpostcard0=0x7f090076;
+        public static final int ImageViewpostcard1=0x7f09007b;
         public static final int LoginName=0x7f09003f;
         public static final int action_bar=0x7f090031;
         public static final int action_bar_activity_content=0x7f090003;
@@ -1707,6 +1715,9 @@ containing a value of this type.
         public static final int checkbox=0x7f090029;
         public static final int collapseActionView=0x7f090015;
         public static final int confirm_password_edit=0x7f09006e;
+        public static final int date_container=0x7f09007d;
+        public static final int date_inside=0x7f09007e;
+        public static final int date_text=0x7f09007f;
         public static final int decor_content_parent=0x7f09002f;
         public static final int default_activity_button=0x7f090024;
         public static final int dialog=0x7f090019;
@@ -1728,17 +1739,29 @@ containing a value of this type.
         public static final int ifRoom=0x7f090016;
         public static final int image=0x7f090023;
         public static final int imageButton1=0x7f090061;
-        public static final int imageView1=0x7f090070;
+        public static final int imageView0=0x7f090075;
+        public static final int imageView1=0x7f09007a;
+        public static final int imageView2=0x7f090072;
         public static final int imageViewId=0x7f090054;
+        public static final int imageViewdate0=0x7f090074;
+        public static final int imageViewdate1=0x7f090079;
+        public static final int imageViewname0=0x7f090077;
+        public static final int imageViewname1=0x7f09007c;
         public static final int linearLayout1=0x7f09004a;
         public static final int listMode=0x7f09000a;
         public static final int list_item=0x7f090025;
         public static final int list_slidermenu=0x7f090047;
+        public static final int location_container=0x7f090086;
+        public static final int location_image=0x7f090080;
+        public static final int location_name_back=0x7f090087;
+        public static final int location_text=0x7f090088;
         public static final int mBtnRe2=0x7f090055;
         public static final int messageBackground=0x7f090049;
         public static final int middle=0x7f09001d;
         public static final int navWall=0x7f090062;
         public static final int never=0x7f090017;
+        public static final int node0=0x7f090073;
+        public static final int node1=0x7f090078;
         public static final int none=0x7f09000f;
         public static final int normal=0x7f09000b;
         public static final int password=0x7f090041;
@@ -1747,10 +1770,14 @@ containing a value of this type.
         public static final int postText=0x7f09006a;
         public static final int postalAddress=0x7f09004f;
         public static final int postcard=0x7f090069;
+        public static final int postcard_layout=0x7f090081;
+        public static final int postcard_num=0x7f090085;
+        public static final int postcard_num_container=0x7f090082;
         public static final int progress_circular=0x7f090007;
         public static final int progress_horizontal=0x7f090008;
         public static final int radio=0x7f09002b;
         public static final int receipant=0x7f09004e;
+        public static final int scrollView1=0x7f090070;
         public static final int search_badge=0x7f090035;
         public static final int search_bar=0x7f090034;
         public static final int search_button=0x7f090036;
@@ -1779,10 +1806,13 @@ containing a value of this type.
         public static final int text6=0x7f09005c;
         public static final int text7=0x7f090059;
         public static final int text8=0x7f09005d;
+        public static final int textView1=0x7f090084;
         public static final int textView2=0x7f09005f;
         public static final int textViewUserName=0x7f09005e;
         public static final int textWrite=0x7f090066;
+        public static final int text_container=0x7f090083;
         public static final int title=0x7f090027;
+        public static final int trackmap_layout=0x7f090071;
         public static final int up=0x7f090001;
         public static final int useLogo=0x7f090013;
         public static final int user_name_edit=0x7f09006c;
@@ -1851,7 +1881,8 @@ containing a value of this type.
         public static final int signup=0x7f03001e;
         public static final int support_simple_spinner_dropdown_item=0x7f03001f;
         public static final int trackmap=0x7f030020;
-        public static final int unavailable=0x7f030021;
+        public static final int trackmap_node_layout=0x7f030021;
+        public static final int unavailable=0x7f030022;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 

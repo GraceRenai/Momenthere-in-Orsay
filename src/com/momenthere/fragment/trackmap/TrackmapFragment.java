@@ -16,15 +16,21 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.content.Intent;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /**
  * @author Xiuming XU (gracexuxiuming@gmail.com)
@@ -36,7 +42,7 @@ public class TrackmapFragment extends Fragment implements Utility {
 	// context
 	private Activity mActivity;
 	private String username;
-	
+
 	private String TAG = "Okay2";
 	List<Message> list = null;
 	private int nodeSize;
@@ -50,7 +56,7 @@ public class TrackmapFragment extends Fragment implements Utility {
 	// creates and returns the view hierarchy associated with the fragment.
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.postcard, container, false);
+		View rootView = inflater.inflate(R.layout.trackmap, container, false);
 		Log.i("sha", "2");
 		return rootView;
 
@@ -69,9 +75,45 @@ public class TrackmapFragment extends Fragment implements Utility {
 		username = extras.getString("username");
 		Log.i("sha", "3");
 		// TODO add codes....extras
-		// username
 		getData("wanglan");
+		LinearLayout layout = (LinearLayout) mActivity
+				.findViewById(R.id.trackmap_layout);
+		// ImageView btn = (ImageView)
 
+		for (int i = 0; i < nodeSize; i++) {
+			String time = list.get(i).time;
+			//!!!!postcard num
+			String num = "0";
+			String location = list.get(i).location;
+			addnewNode(layout,time,num,location);
+		}
+
+	}
+
+	private void addnewNode(LinearLayout layout,String date,String num, String location) {
+		LayoutInflater mInflater = (LayoutInflater) mActivity
+				.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);                  
+		View contentView  = mInflater.inflate(R.layout.trackmap_node_layout,null);
+//		LinearLayout haha = (LinearLayout)contentView.findViewById(R.id.trackmap_layout);
+		TextView date_text = (TextView)contentView.findViewById(R.id.date_text);
+		TextView post_num = (TextView)contentView.findViewById(R.id.postcard_num);
+		TextView location_name = (TextView)contentView.findViewById(R.id.location_text);
+		ImageView location_image = (ImageView)contentView.findViewById(R.id.location_image);
+		if(location.equals("orsay")){
+			location_image.setImageResource(R.drawable.trackmap_view_triomphe);
+		}else if(location.equals("luvre")){
+			location_image.setImageResource(R.drawable.trackmap_view_luvre);
+		}else if(location.equals("eiffeltower")){
+			location_image.setImageResource(R.drawable.trackmap_view_eiffeltower);
+		}else{
+			location_image.setImageResource(R.drawable.trackmap_view_notredame);
+		}
+		
+		date_text.setText(date);
+		post_num.setText(num);
+		location_name.setText(location);
+		layout.addView(contentView);
+		
 	}
 
 	private View.OnClickListener getImage = new OnClickListener() {
@@ -94,12 +136,11 @@ public class TrackmapFragment extends Fragment implements Utility {
 		String jsonString = HttpUtils.getJsonContent(path);
 		Log.i(TAG, jsonString);
 		Gson gson = new Gson();
-		list = gson.fromJson(jsonString,
-				new TypeToken<List<Message>>() {
-				}.getType());
+		list = gson.fromJson(jsonString, new TypeToken<List<Message>>() {
+		}.getType());
 
 		nodeSize = list.size();
-		Log.i(TAG,String.valueOf(nodeSize));
+		Log.i(TAG, String.valueOf(nodeSize));
 	}
 
 }

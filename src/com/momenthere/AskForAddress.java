@@ -1,7 +1,5 @@
-//Coder: Lan Wang
+//Coder: Yuyin
 package com.momenthere;
-
-
 
 import java.sql.Timestamp;
 import java.util.Date;

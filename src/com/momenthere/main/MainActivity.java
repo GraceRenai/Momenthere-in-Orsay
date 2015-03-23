@@ -147,8 +147,8 @@ public class MainActivity extends Activity implements Utility{
 		super.onCreate(savedInstanceState);
 
 
-		Bundle extras = this.getIntent().getExtras();
-		username = extras.getString("username");
+//		Bundle extras = this.getIntent().getExtras();
+//		username = extras.getString("username");
 
 		// requestWindowFeature(Window.FEATURE_NO_TITLE);
 		// int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;
